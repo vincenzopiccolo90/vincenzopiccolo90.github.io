@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricerca generi CITES</title>
+  <style>     /* Stili CSS di base (vedi punto 2) */
+      body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #80d999;
+    }
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background-color: #abebbd;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; /* Assicura che padding e border non aumentino la larghezza */
+      background-color: #fcf98b;
+      color: #848c0d;
+    }
+    input[type="text"]::placeholder { /* Aggiunta della regola per il placeholder */
+      color: #848c0d; /* Colore del testo placeholder */
+      opacity: 1;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 8px 12px;
+      border-bottom: 1px solid #848c0d;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+  footer { /* Aggiunta degli stili per il footer */
+      background-color: #abebbd;
+      color: #848c0d;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8em;
+    }
+  </style>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="container">
+    <h1>Ricerca generi CITES</h1>
+    <input type="text" id="searchInput" placeholder="Cerca...">
+    <ul id="resultsList">
+  <li><strong>BAL - stecche (fanoni) (Chilogrammi):</strong> Fanoni di balena: lamine elastiche di cheratina fissate alla mascella superiore delle balene (Mysticeti), che consentono loro di nutrirsi</li>
+  <li><strong>BAR - corteccia (Chilogrammi):</strong> Corteccia d'albero (grezza, essiccata o in polvere; non lavorata).<br>Specimen da tenere distinti rispetto al legno grezzo (vgs. genere TIM).</li>
+  <li><strong>BOD - corpo (Numero):</strong> Corpi di animali morti, sostanzialmente interi, compresi pesci interi, tartarughe imbalsamate, farfalle preparate, rettili in alcool, trofei di caccia interi imbalsamati ecc.<br>Le anguille destinate al consumo umano devono essere indicate con il genere MEA.</li>
+  <li><strong>BON - osso (Chilogrammi):</strong> Ossa, comprese le mascelle.<br>Esclusioni:<br>- intagli in osso: vgs. genere CARB;<br>- pezzi di ossa non lavorati: vgs. genere BOP;<br>- scheletri: vgs. genere SKE;<br>- crani: vgs. genere SKU.</li>
+  <li><strong>BOP - osso (pezzi) (Chilogrammi):</strong> Pezzi di ossa non lavorati, compresi i cascami.</li>
+  <li><strong>CAL - calipee (Chilogrammi):</strong> Calipee o calipash (cartilagine della tartaruga utilizzata nelle zuppe).</li>
+  <li><strong>CAP - carapace (Numero):</strong> Corazze intere grezze o non lavorate delle specie di Testudines.</li>
+  <li><strong>CARB - intaglio - osso (Chilogrammi):</strong> Intaglio in osso.</li>
+  <li><strong>CARH - intaglio - corno (Chilogrammi):</strong> Intaglio in corno.</li>
+  <li><strong>CARI - intaglio - avorio (Chilogrammi):</strong> Intagli in avorio, compresi, ad esempio, piccoli pezzi di avorio (manici di coltelli, figure di scacchi, tessere per mahjong ecc.).<br>Esclusioni:<br>- articoli di gioielleria intagliati: vgs. genere JWLX;<br>- zanne di elefante, ippopotamo, tricheco e narvalo: vgs. genere TUS.</li>
+  <li><strong>CARX - intaglio (Chilogrammi):</strong> Prodotti intagliati ad esempio in corallo e legno, anche di artigianato.<br>Esclusioni:<br>- intagli in avorio: vgs genere CARI;<br>- articoli di gioielleria intagliati: vgs. genere JWLX;<br>- articoli di gioelleria - avorio: vgs. genere JWLI;<br>- intagli in osso: vgs. genere CARB;<br>- intagli in corno: vgs. genere CARH;<br>- zanne di elefante, ippopotamo, tricheco e narvalo: vgs. genere TUS.</li>
+  <li><strong>CAV - caviale (Chilogrammi):</strong> Uova morte trattate non fecondate di tutte le specie di Acipenseriformes; anche note come ‘uova di storione’.</li>
+  <li><strong>CHP - trucioli (Chilogrammi):</strong> Trucioli di legno, segnatamente Aquilaria spp., Gyrinops spp. e Pterocarpus santalinus.</li>
+  <li><strong>CLA - artiglio (Numero):</strong> Artigli, ad esempio di Felidae, Ursidae o Crocodylia.<br>Si rammenta che gli artigli di tartaruga sono di norma scaglie e non veri artigli (vgs. genere SCA).</li>
+  <li><strong>CLO - tessuto (Chilogrammi):</strong> Tessuto.<br>Nel caso in cui il tessuto sia composto interamente col pelo di una specie CITES, valutare l'alternativa indicazione del genere HAI.</li>
+  <li><strong>CORD - corallo (grezzo) (Numero):</strong> Corallo grezzo o non lavorato e corallo pietrificato.<br>Roccia viva e substrato (anche trasportata in umido in scatole).<br>I prodotti intagliati di corallo devono essere indicati con il genere CARX.<br>Per il corallo pietrificato va indicato in nota il taxon ‘Scleractinia spp.’.</li>
+  <li><strong>CORL - corallo (vivo) (Numero):</strong> Corallo vivo (trasportato in acqua)</li>
+  <li><strong>COS - prodotti cosmetici (Grammi):</strong> Estratti di specimen CITES contenuti in prodotti cosmetici.<br>La quantità indicata deve corrispondere alla quantità di estratto e non dell'intero prodotto.</li>
+  <li><strong>CUL - coltura (Numero):</strong> Colture di piante riprodotte artificialmente.</li>
+  <li><strong>DER - derivati (Chilogrammi):</strong> Derivati non ricompresi in altri generi.</li>
+  <li><strong>DPL - pianta secca (Numero):</strong> Piante secche - ad esempio esemplari da erbario.</li>
+  <li><strong>EAR - orecchio (Numero):</strong> Orecchie, di solito di elefante.</li>
+  <li><strong>EGGD - uovo (morto) (Numero):</strong> Uova intere morte o schiacciate.<br>Si evidenzia che il caviale e le ‘uova di storione’ devono essere ricondotte al genere CAV.</li>
+  <li><strong>EGGL - uovo (vivo) (Numero):</strong> Uova vive fecondate, di solito di uccelli e rettili, ma anche di pesci e invertebrati.</li>
+  <li><strong>EGGS - uovo (guscio) (Chilogrammi):</strong> Gusci di uova grezzi o non lavorati, ad esclusione delle uova intere per le quali sono previsti i generi EGGD e EGGL.</li>
+  <li><strong>EXT - estratto (Chilogrammi):</strong> Estratto, di solito estratti vegetali.</li>
+  <li><strong>FEAP - penna (oggetti) (Numero):</strong> Oggetti (ad esempio quadri) fatti di penne.</li>
+  <li><strong>FEAX - penna (Chilogrammi):</strong> Penne.<br>Nel caso di oggetti (ad esempio quadri) fatti di penne vgs. genere FEAP.</li>
+  <li><strong>FFN - pinna (Chilogrammi):</strong> Pinne o parti di pinne (comprese le natatoie) fresche, congelate o essiccate.<br>Le pinne caudali dei cetacei devono essere indicate con il genere TAI.</li>
+  <li><strong>FIB - fibra (Chilogrammi):</strong> Fibra naturale di origine naturale vegetale o animale.<br>Le fibre animali possono generalmente essere filate e tessute, sono generalmente molto fini e hanno una buona flessibilità (es. fibra proveniente dalla tosa di vigogne vive).<br>Comprende anche fibre di intestini animali utilizzate per produrre cordatura delle racchette da tennis.<br>Specimen da tenere distinti rispetto al filo (vgs. genere THD).</li>
+  <li><strong>FIG - novellame (Chilogrammi):</strong> Giovani pesci vivi per acquariofilia, per acquacoltura, per incubatrici, per consumo o per operazioni di rilascio, comprese le anguille europee vive (Anguila anguilla) fino a 12 cm di lunghezza.</li>
+  <li><strong>FLO - fiore (Chilogrammi):</strong> Fiori.</li>
+  <li><strong>FOO - zampa (Numero):</strong> Zampe - ad esempio elefante, rinoceronte, ippopotamo, leone, coccodrillo ecc.</li>
+  <li><strong>FPL - prodotti di pellicceria (grandi) (Numero):</strong> Grandi manufatti di pelliccia - ad esempio coperte di pelliccia d'orso o di lince o altri prodotti di pelliccia di dimensioni considerevoli.</li>
+  <li><strong>FPS - prodotti di pelliccia (piccoli) (Numero):</strong> Piccoli manufatti di pelliccia - anche borsette, portachiavi, portamonete, guanciali, finiture ecc.</li>
+  <li><strong>FPT - vaso da fiori (Numero):</strong> Vasi da fiori fatti con parti di piante (ad esempio con fibre di felci arborescenti).<br>Le piante vive commerciate nei in "vasi comuni" devono essere indicate con il genere LIV.</li>
+  <li><strong>FRU - frutta (Chilogrammi):</strong> Frutta.</li>
+  <li><strong>GAB - cistifellea (Numero):</strong> Cistifellea.</li>
+  <li><strong>GAL - bile (Chilogrammi):</strong> Bile.</li>
+  <li><strong>GAR - articolo di abbigliamento (Numero):</strong> Articoli di abbigliamento, compresi i guanti e i cappelli, con eventuali finiture e decorazioni.<br>Esclusioni:<br>- prodotti di pelo: vgs. genere HAIP;<br>- calzature: vgs. genere LPS.</li>
+  <li><strong>GEN - organi genitali (Chilogrammi):</strong> Organi genitali maschili asportati ed essiccati.</li>
+  <li><strong>GIL - squame branchiali (Numero):</strong> Squame branchiali (ad esempio per gli squali).</li>
+  <li><strong>GRS - portainnesto (Numero):</strong> Portainnesto (senza l'innesto).</li>
+  <li><strong>HAI - pelo (Chilogrammi):</strong> Tutti i peli non trasformtati di animali.<br>Specimen da tenere distinti rispetto al filo (vgs. genere THD).</li>
+  <li><strong>HAIP - prodotti di pelo (Numero):</strong> Prodotti fatti di pelo (ad esempio braccialetti di pelo di elefante)</li>
+  <li><strong>HOP - corno (pezzi) (Chilogrammi):</strong> Pezzi di corna non lavorati, compresi i cascami.</li>
+  <li><strong>HOR - corno (Numero):</strong> Corna e palchi.<br>Esclusioni:<br>- intagli in corno: vgs. genere CARH;<br>- pezzi di corna non lavorati: vgs. genere HOP.</li>
+  <li><strong>IVP - avorio (pezzi) (Chilogrammi):</strong> Pezzi di avorio non lavorati, compresi i cascami.</li>
+  <li><strong>JWLI - gioielleria - avorio (Numero):</strong> Gioielleria in avorio - comprende "ekipas".</li>
+  <li><strong>JWLX - gioielleria (Numero):</strong> Gioielleria - compresi braccialetti, collane, altri articoli di gioielleria ottenuti con prodotti diversi dall'avorio (ad esempio legno, corallo ecc.)</li>
+  <li><strong>KEY - tasti di pianoforte (Numero):</strong> Tasti di pianoforte in avorio.</li>
+  <li><strong>KNL - endosperma (Chilogrammi):</strong> Endosperma, detto anche "polpa" del seme (o noce) di cocco.<br>L'endosperma essiccato è detto anche "copra".</li>
+  <li><strong>LEG - cosce di rana (Chilogrammi):</strong> Cosce di rana.</li>
+  <li><strong>LIV - esemplare vivo (Numero):</strong> Animali e piante vivi.<br>Esclusioni:<br>- coralli: vgs. genere CORL;<br>- novellame: vgs. genere FIG. </li>
+  <li><strong>LOG - tronchi (Metri cubi):</strong> Legno grezzo destinato ad essere trasformato (in particolare in legno segato, pasta di legno o fogli di compensato), privato o no della corteccia e dell'alburno, o squadrato.</li>
+  <li><strong>LOGS - tronchi speciali (Chilogrammi):</strong> Tronchi di legno per usi speciali commerciati in peso (ad esempio guaiaco di Guaiacum spp.).</li>
+  <li><strong>LPL - articoli in cuoio (grandi) (Numero):</strong> Grandi manufatti di pelletteria - ad esempio portadocumenti, mobili, valigie, bauli da viaggio.</li>
+  <li><strong>LPS - articoli in cuoio (piccoli) (Numero):</strong> Piccoli manufatti di pelletteria - ad esempio cinghie e cinture, bretelle, selle di bicicletta, portassegni o portacarte di credito, borsette, portachiavi, libretti per appunti, borsellini, calzature, sacchetti per tabacco, portafogli, cinturini per orologi da polso, finiture.</li>
+  <li><strong>LVS - foglia (Chilogrammi):</strong> Foglie.</li>
+  <li><strong>MEA - carne (Chilogrammi):</strong> Carni, anche di pesci se non interi (vgs. genere BOD), carni fresche o non trasformate e carni trasformate (ad esempio, affumicate, secche, congelate o in scatola). Include le anguille destinate al consumo umano.</li>
+  <li><strong>MED - medicinale (Chilogrammi):</strong> Medicinale.</li>
+  <li><strong>MUS - muschio (Chilogrammi):</strong> Muschio.</li>
+  <li><strong>OIL - olio (Chilogrammi):</strong> Olio - ad esempio di tartaruga, foca, balena, pesce, piante varie.</li>
+  <li><strong>PLA - pannelli (Metri quadri):</strong> Pannelli di pelle con pelliccia, compresi i tappeti se prodotti con diverse pelli.</li>
+  <li><strong>PLY - compensato (Metri cubi):</strong> Materiale costituito da tre o più fogli di legno incollati e pressati uno sull'altro, generalmente disposti in modo che le fibre di uno strato risultino perpendicolari a quelle dello strato successivo</li>
+  <li><strong>POW - polvere (Chilogrammi):</strong> Polvere. Sostanza secca e solida sotto forma di particelle fini o<br>grossolane.</li>
+  <li><strong>PRL - perla (Numero):</strong> Perla (ad esempio di Strombus gigas).</li>
+  <li><strong>PUP - pupe (Numero):</strong> Pupe di farfalla</li>
+  <li><strong>ROO - radice (Chilogrammi):</strong> Radici, bulbi, cormi o tuberi.</li>
+  <li><strong>ROS - rostro del pesce sega (Numero):</strong> Rostro del pesce sega.</li>
+  <li><strong>RUG - tappeti (Numero):</strong> Tappeti. Se prodotti con diverse pelli devono essere indicati con il genere PLA.</li>
+  <li><strong>SAW - legno segato (Metri cubi):</strong> Legno semplicemente segato per la lunghezza o prodotto mediante un processo di scalpellatura; supera di norma i 6 mm di spessore.</li>
+  <li><strong>SAWS - legno segato speciale (Chilogrammi):</strong> Legno segato prodotto a partire da legno per usi speciali commerciato in peso (ad esempio guaiaco di Guaiacum spp.).</li>
+  <li><strong>SCA - scaglia (Chilogrammi):</strong> Scaglie - ad esempio di tartaruga, altri rettili, pesci, pangolini</li>
+  <li><strong>SEE - seme (Chilogrammi):</strong> Semi</li>
+  <li><strong>SHE - guscio (Numero):</strong> Guscio grezzo e non lavorato di molluschi.</li>
+  <li><strong>SID - fianco (Numero):</strong> Parti o fianchi di pelli, esclusi i i fianchi di coccodrillo (tinga frames) da indicare con il genere SKI.</li>
+  <li><strong>SKE - scheletro (Numero):</strong> Scheletri sostanzialmente interi.</li>
+  <li><strong>SKI - pelle (Numero):</strong> Pelli sostanzialmente intere, grezze o conciate.<br>Membrane corporee esterne, con o senza scaglie.<br>Fianchi di coccodrillo (tinga frames). </li>
+  <li><strong>SKP - pelle (pezzi) (Chilogrammi):</strong> Pezzi di pelle, compresi cascami, grezzi o conciati</li>
+  <li><strong>SKU - cranio (Numero):</strong> Crani.</li>
+  <li><strong>SOU - zuppa (Chilogrammi):</strong> Zuppa - ad esempio di tartaruga.</li>
+  <li><strong>SPE - esemplare (scientifico) (Numero):</strong> Esemplari scientifici: comprende sangue, tessuti (ad esempio reni, milza), preparati istologici, esemplari da museo conservati ecc.</li>
+  <li><strong>STE - fusto o stelo (Chilogrammi):</strong> Steli o fusti di piante</li>
+  <li><strong>SWI - vescica natatoria (Chilogrammi):</strong> Organo idrostatico, comprese colla di pesce/colla di storione.</li>
+  <li><strong>TAI - coda (Chilogrammi):</strong> Code - ad esempio di caimano (per il cuoio) o di volpe (per finiture di capi d'abbigliamento, colli, stole ecc.).<br>Sono incluse le pinne caudali dei cetacei.</li>
+  <li><strong>TEE - dente (Numero):</strong> Denti - ad esempio di balena, leone, ippopotamo, coccodrillo ecc.<br>I fanoni di balena devono essere indicati con il genere BAL.</li>
+  <li><strong>THD - filo (Chilogrammi):</strong> Filo - trefolo lungo lavorato di molteplici peli o fibre di origine naturale (vegetale o animale), ad esempio vigogna, guanaco.</li>
+  <li><strong>TIM - legno (Metri cubi):</strong> Legno grezzo.<br>Esclusioni:<br>- legno destinato ad essere trasformato: vgs. generi LOG e LOGS;<br>- compensato: vgs. genere PLY;<br>- legno segato: vgs. generi SAW e SAWS;<br>- steli o fusti di piante: vgs. genere STE;<br>- piallaccio sfogliato o tranciato: vgs. genere VEN;<br>- legno trasformato: vgs. genere TRW;<br>- manufatti di legno: vgs. genere WPR.</li>
+  <li><strong>TRO - trofeo (Numero):</strong> Trofeo. Al riguardo si evidenzia che tutte le parti costituenti trofeo provenienti da un unico animale se trasportate insieme devono essere indicate come un unico prodotto con il genere TRO.<br>Esclusioni:<br>- corpi imbalsamati interi: vgs. genere BOD;<br>- pelle: vgs. generi SID, SKI e SKP.</li>
+  <li><strong>TRU - proboscide (Numero):</strong> Proboscide di elefante. Al riguardo si evidenzia che la proboscide di elefante con altri elementi da trofeo provenienti dallo stesso animale nell'ambito di un trofeo di caccia deve essere indicata con il genere TRO.</li>
+  <li><strong>TRW - legno trasformato (Metri cubi):</strong> Legno (comprese le liste e le tavolette per pavimenti, non riunite) profilato lungo uno o più orli, estremità o superfici (con incastri semplici, scanalato, con incastri a V, con modanature o simili), anche piallato, levigato o incollato con giunture alle estremità.</li>
+  <li><strong>TUS - zanna (Chilogrammi):</strong> Zanne sostanzialmente intere, lavorate o meno. Comprende le zanne di elefante, ippopotamo, tricheco, narvalo, ma non altri denti (questi ultimi ricompresi nel genere TEE).<br>Esclusioni:<br>- intagli in avorio: vgs. genere CARI;<br>- gioielleria in avorio vgs. genere JWLI;<br>- tasti di pianoforte in avorio: vgs. genere KEY;<br>- pezzi di avorio: vgs. genere IVP.</li>
+  <li><strong>VEN - piallaccio sfogliato o tranciato (Chilogrammi):</strong> Strati sottili o fogli di legno di spessore uniforme di norma pari o inferiore a 6 mm, generalmente sfogliati o tranciati, usati per produrre compensato, per impiallacciare mobili, recipienti ecc.</li>
+  <li><strong>WAX - cera (Chilogrammi):</strong> Cera.</li>
+  <li><strong>WPR - prodotto di legno (Numero):</strong> Manufatti di legno, compresi prodotti di legno finiti come mobili e strumenti musicali.</li>
+</ul>
+  </div>
+  <footer>
+    <p>Ufficio Tutela Entrate <br> Servizio Dogane, Monopoli e Accise <br> Sezione Dogane</p>
+  </footer>
+  <script>
+       const searchInput = document.getElementById('searchInput');
+    const resultsList = document.getElementById('resultsList');
+    const listItems = resultsList.getElementsByTagName('li');
+
+    searchInput.addEventListener('keyup', function(event) {
+      const searchTerm = searchInput.value.toLowerCase();
+
+      for (let i = 0; i < listItems.length; i++) {
+        const itemText = listItems[i].textContent.toLowerCase();
+        if (itemText.includes(searchTerm)) {
+          listItems[i].style.display = ""; // Mostra l'elemento
+        } else {
+          listItems[i].style.display = "none"; // Nascondi l'elemento
+        }
+      }
+    });
+  </script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</body>
+</html>
